@@ -1,0 +1,156 @@
+﻿name: youtxn
+
+on:
+  workflow_dispatch:
+  schedule:
+     - cron: '*/20 * * * *'
+  watch:
+    types: started
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    if: github.event.repository.owner.id == github.event.sender.id
+    steps:
+      - uses: actions/checkout@v1
+      - name: Use Node.js 12.x
+        uses: actions/setup-node@v1
+        with:
+           node-version: 12.x
+      - name: npm install
+        run: |
+              npm install
+      - name: 'run youth'
+        run: |
+           node xlcsecret-All.js
+        env:
+          YOUTH_HEADER: ${{ secrets.YOUTH_HEADER }}
+          YOUTH_ARTBODY: ${{ secrets.YOUTH_ARTBODY }}
+          YOUTH_TIME: ${{ secrets.YOUTH_TIME }}
+          SYNCURL:yous/main/youthN.js
+          XLC: ${{ secrets.XLC }}
+          GITHUB: ${{ secrets.GITHUB }}
+          EFORK: ${{ secrets.EFORK }}
+          
+      - uses: actions/checkout@v1
+      - name: Use Node.js 12.x
+        uses: actions/setup-node@v1
+        with:
+           node-version: 12.x
+      - name: npm install
+        run: |
+              npm install
+      - name: 'run txn'
+        run: |
+           node xlcsecret-All.js
+        env:
+          TXNEWS_SIGN: ${{ secrets.TXNEWS_SIGN }}
+          TXNEWS_COOKIE: ${{ secrets.TXNEWS_COOKIE }}
+          TXNEWS_VIDEO: ${{ secrets.TXNEWS_VIDEO }}
+          SYNCURL:yous/main/txnew.js
+          XLC: ${{ secrets.XLC }}
+          GITHUB: ${{ secrets.GITHUB }}      
+          EFORK: ${{ secrets.EFORK }}
+  
+      - uses: actions/checkout@v1
+      - name: Use Node.js 12.x
+        uses: actions/setup-node@v1
+        with:
+           node-version: 12.x
+      - name: npm install
+        run: |
+              npm install
+      - name: 'run bubb'
+        run: |
+           node xlcsecret-All.js
+        env:
+          BBB_bububaoTOKEN: ${{ secrets.BBB_bububaoTOKEN }}
+          BBB_CASH: ${{ secrets.BBB_BBB_CASH }}
+          SYNCURL: yous/z/Task/bububao.js
+          XLC: ${{ secrets.XLC }}
+          GITHUB: ${{ secrets.GITHUB }}
+          EFORK: ${{ secrets.EFORK }}
+          
+      - uses: actions/checkout@v1
+      - name: Use Node.js 12.x
+        uses: actions/setup-node@v1
+        with:
+           node-version: 12.x
+      - name: npm install
+        run: |
+              npm install
+      - name: 'run xp'
+        run: |
+           node xlcsecret-All.js
+        env:
+          XP_refreshTOKEN: ${{ secrets.XP_refreshTOKEN }}
+          XP_live: ${{ secrets.XP_live }}
+          XP_CASH: ${{ secrets.XP_CASH }}
+          SYNCURL: yous/z/Task/iboxpay.js
+          XLC: ${{ secrets.XLC }}
+          GITHUB: ${{ secrets.GITHUB }}
+          EFORK: ${{ secrets.EFORK }}
+          
+      - uses: actions/checkout@v1
+      - name: Use Node.js 12.x
+        uses: actions/setup-node@v1
+        with:
+           node-version: 12.x
+      - name: npm install
+        run: |
+              npm install
+      - name: 'run Qyd'
+        run: |
+           node xlcsecret-All.js
+        env:
+          QMYD_qmydTOKEN: ${{ secrets.QMYD_qmydTOKEN }}
+          QMYD_CASH: ${{ secrets.QMYD_CASH }}
+          SYNCURL: /yous/z/Task/qmyd.js
+          XLC: ${{ secrets.XLC }}
+          GITHUB: ${{ secrets.GITHUB }}
+          EFORK: ${{ secrets.EFORK }}
+  
+      - uses: actions/checkout@v1
+      - name: Use Node.js 12.x
+        uses: actions/setup-node@v1
+        with:
+           node-version: 12.x
+      - name: npm install
+        run: |
+              npm install
+      - name: 'run ttx'
+        run: |
+           node xlcsecret-All.js
+        env:
+          JRTTSIGNURL: ${{ secrets.JRTTSIGNURL }}
+          JRTTSIGNKEY: ${{ secrets.JRTTSIGNKEY }}
+          JRTTFARMURL: ${{ secrets.JRTTFARMURL }}
+          JRTTFARMKEY: ${{ secrets.JRTTFARMKEY }}
+          JRTTREADURL: ${{ secrets.JRTTREADURL }}
+          JRTTREADKEY: ${{ secrets.JRTTREADKEY }}
+          SYNCURL:yous/main/ttjs.js
+          XLC: ${{ secrets.XLC }}
+          GITHUB: ${{ secrets.GITHUB }}      
+          EFORK: ${{ secrets.EFORK }}
+
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          repository: justnew138/you
+          ref: 'main'
+          token: ${{ secrets.PAT }}
+      - name: 'Set up Python'
+        uses: actions/setup-python@v1
+        with:
+          python-version: 3.7       
+      - name: 'Install requests'
+        run: pip install requests
+      - name: 'run youthpy'
+        run: python3 youth.py
+         # 目前最大5个账号
+        env:
+             BARK: ${{ secrets.BARK }}  #非必须 bark通知
+             TG_BOT_TOKEN: ${{ secrets.TG_BOT_TOKEN }}  #非必须 tg机器人token
+             TG_USER_ID: ${{ secrets.TG_USER_ID }}  #非必须 tg机器人userId
+             XLC: ${{ secrets.XLC }}
+            
