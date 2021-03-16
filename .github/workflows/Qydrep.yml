@@ -1,0 +1,93 @@
+name: Qrep
+
+on:
+  workflow_dispatch:
+  schedule:
+     - cron: '*/29 * * * *'
+  watch:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    if: github.event.repository.owner.id == github.event.sender.id
+    steps: 
+      - uses: actions/checkout@v1
+      - name: Use Node.js 12.x
+        uses: actions/setup-node@v1
+        with:
+           node-version: 12.x
+      - name: npm install
+        run: |
+              npm install
+      - name: 'run bubb'
+        run: |
+           node xlcsecret-All.js
+        env:
+          BBB_bububaoTOKEN: ${{ secrets.BBB_bububaoTOKEN }}
+          BBB_CASH: ${{ secrets.BBB_BBB_CASH }}
+          SYNCURL: yous/z/Task/bububao.js
+          XLC: ${{ secrets.XLC }}
+          GITHUB: ${{ secrets.GITHUB }}
+          EFORK: ${{ secrets.EFORK }}
+          
+          
+      - uses: actions/checkout@v1
+      - name: Use Node.js 12.x
+        uses: actions/setup-node@v1
+        with:
+           node-version: 12.x
+      - name: npm install
+        run: |
+              npm install
+      - name: 'run Qyd'
+        run: |
+           node xlcsecret-All.js
+        env:
+          QMYD_qmydTOKEN: ${{ secrets.QMYD_qmydTOKEN }}
+          QMYD_CASH: ${{ secrets.QMYD_CASH }}
+          SYNCURL: yous/z/Task/qmyd.js
+          XLC: ${{ secrets.XLC }}
+          GITHUB: ${{ secrets.GITHUB }}
+          EFORK: ${{ secrets.EFORK }}
+
+      - uses: actions/checkout@v1
+      - name: Use Node.js 12.x
+        uses: actions/setup-node@v1
+        with:
+           node-version: 12.x
+      - name: npm install
+        run: |
+              npm install
+      - name: 'run QCZJ'
+        run: |
+           node xlcsecret-All.js
+        env:
+          QCZJ_GetUserInfoHEADER: ${{ secrets.QCZJ_GetUserInfoHEADER }}
+          QCZJ_taskBODY: ${{ secrets.QCZJ_taskBODY }}		
+          QCZJ_activityBODY: ${{ secrets.QCZJ_activityBODY }}	
+          QCZJ_addCoinBODY: ${{ secrets.QCZJ_addCoinBODY }}
+          QCZJ_addCoin2BODY: ${{ secrets.QCZJ_addCoin2BODY }}
+          QCZJ_CASH: ${{ secrets.QCZJ_CASH }}
+          SYNCURL: yous/z/Task/qczjspeed.js
+          XLC: ${{ secrets.XLC }}
+          GITHUB: ${{ secrets.GITHUB }}
+          EFORK: ${{ secrets.EFORK }}
+
+      - uses: actions/checkout@v1
+      - name: Use Node.js 12.x
+        uses: actions/setup-node@v1
+        with:
+           node-version: 12.x
+      - name: npm install
+        run: |
+              npm install
+      - name: 'run QreP'
+        run: |
+           node xlcsecret-All.js
+        env:
+          QQ_QQreadURL: ${{ secrets.QQ_QQreadURL }}
+          SYNCURL: yous/z/Task/QQread.js
+          XLC: ${{ secrets.XLC }}
+          GITHUB: ${{ secrets.GITHUB }}
+          EFORK: ${{ secrets.EFORK }}
+          
+      
