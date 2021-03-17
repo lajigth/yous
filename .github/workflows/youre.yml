@@ -37,4 +37,5 @@ jobs:
           node you_re0.js
         env:
            XLC: ${{ secrets.XLC }}
+           YOUTH_ATIME: ${{ secrets.YOUTH_ATIME }}
            GITHUB: ${{ secrets.GITHUB }} 
