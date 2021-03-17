@@ -68,7 +68,7 @@ concurrency = concurrency < 1 ? 1 : concurrency;
 let sdid = '';sdlqid = '';tc = 0
 
 
-let hd={"Accept": "*/*","Accept-Encoding": "gzip, deflate","Accept-Language": "zh-Hans-CN;q=1, en-US;q=0.9, zh-Hant-CN;q=0.8","Connection": "close","Content-Type": "application/x-www-form-urlencoded","Host": "cf-api.douzhuanapi.cn:10002","User-Agent": "NormalDemo/1 (iPhone; iOS 14.3; Scale/2.00)","X-V": "1","osType": "iOS","phoneModel": "iPhone 6s Plus","platform": "iOS","versioncode": "1",}
+let hd={"Accept": "*/*","X-CCMS":"SXBJanlwZGd5Zy55SXlwYWo=","Accept-Encoding": "gzip, deflate","Accept-Language": "zh-Hans-CN;q=1, en-US;q=0.9, zh-Hant-CN;q=0.8","Connection": :"keep-alive","Content-Type": "application/x-www-form-urlencoded","Host": "cf-api.douzhuanapi.cn:10002","User-Agent": "NormalDemo/1 (iPhone; iOS 14.3; Scale/3.00)","X-V": "1","osType": "iOS","phoneModel": "iPhone 6s Plus","platform": "iOS","versioncode": "1",}
 
 let phoneModel=['iPhone 6s Plus']
 
