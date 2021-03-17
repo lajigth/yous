@@ -72,6 +72,7 @@ let hd={"Accept": "*/*","X-CCMS":"SXBJanlwZGd5Zy55SXlwYWo=","Accept-Encoding": "
 
 let phoneModel=['iPhone 6s Plus']
 
+acsecret=["Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI2MDRiNWRmNjI4MWUyIiwiaWF0IjoxNjE1NTUxOTkwLCJuYmYiOjE2MTU1NTE5OTAsImV4cCI6MTYxODE0Mzk5MCwidWlkIjoxMjEzNzI3LCJuYW1lIjoiXHU1Yjg4XHU0ZTQ5MTNcdTk5OTkiLCJjcmVhdGVkX2F0IjoiMjAyMS0wMy0xMiAyMDoyNjozMCIsImNpdHlfbmFtZSI6bnVsbCwiY2l0eV9jb2RlIjpudWxsfQ.kpgtam4gtQGKHtoA8lHwjzVFXkiafr20PhoyisoiU3w"]
 
 !(async () => {
   if (typeof $request !== "undefined") {
