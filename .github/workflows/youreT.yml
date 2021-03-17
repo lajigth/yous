@@ -1,0 +1,41 @@
+name: youreT
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '36 */6 * * *'
+  watch:
+  repository_dispatch:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    if: github.event.repository.owner.id == github.event.sender.id
+    steps:
+    
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          repository: justnew138/you
+          ref: 'main'
+          token: ${{ secrets.PAT }}
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: Cache node_modules
+        uses: actions/cache@v2
+        env:
+          cache-name: cache-node-modules
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-${{ env.cache-name }}-${{ hashFiles('package-lock.json') }}
+      - name: npm install
+        run: |
+          npm install
+      - name: 'youreT'
+        run: |
+          node you_reT.js
+        env:
+           XLC: ${{ secrets.XLC }}
+           YOUTH_ATIMET: ${{ secrets.YOUTH_ATIMET }}
+           GITHUB: ${{ secrets.GITHUB }} 
