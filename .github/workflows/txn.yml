@@ -1,4 +1,4 @@
-name: txn
+name: txN
 
 on:
   workflow_dispatch:
