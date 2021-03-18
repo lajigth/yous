@@ -5,7 +5,6 @@ on:
   schedule:
      - cron: '*/20 * * * *'
   watch:
-    types: started
 
 jobs:
   build:
