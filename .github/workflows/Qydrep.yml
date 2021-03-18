@@ -3,7 +3,7 @@ name: Qrep
 on:
   workflow_dispatch:
   schedule:
-     - cron: '*/29 * * * *'
+     - cron: '*/28 * * * *'
   watch:
 jobs:
   build:
