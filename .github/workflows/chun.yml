@@ -3,7 +3,7 @@ name: chun
 on:
   workflow_dispatch:
   schedule:
-     - cron: '22 6-22 * * *'
+     - cron: '22 5-22 * * *'
   watch:
 jobs:
   build:
