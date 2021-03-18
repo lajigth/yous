@@ -83,6 +83,8 @@ jobs:
            node xlcsecret-All.js
         env:
           XP_refreshTOKEN: ${{ secrets.XP_refreshTOKEN }}
+          XP_iboxpayvideoHEADER: ${{ secrets.XP_iboxpayvideoHEADER }}
+          XP_iboxpayvideoBODY: ${{ secrets.XP_iboxpayvideoBODY }}
           XP_live: ${{ secrets.XP_live }}
           XP_CASH: ${{ secrets.XP_CASH }}
           SYNCURL: yous/z/Task/iboxpay.js
