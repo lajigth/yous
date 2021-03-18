@@ -12,7 +12,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
         with:
-          repository: justnew138/you
+          repository: lajigth/you
           ref: 'main'
           token: ${{ secrets.PAT }}
       - name: 'Set up Python'
