@@ -3,7 +3,7 @@ name: shuqi
 on:
   workflow_dispatch:
   schedule:
-     - cron: '8 */8 * * *'
+     - cron: '36 */8 * * *'
   watch:
 jobs:
   build:
