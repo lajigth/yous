@@ -1,0 +1,75 @@
+﻿{
+  "id": "xingliuchao.app.sub",
+  "name": "xingliuchao 脚本辅助a",
+  "author": "@xingliuchao",
+  "icon": "https://avatars3.githubusercontent.com/u/62364023?s=460&u=dd3390d84bbb1774f3f8692e0ec57dcfea3c2a0c&v=4",
+  "repo": "https://github.com/xingliuchao/jd/tree/main",
+  "apps": [
+    {
+    "id": "QreadAPP",
+    "name": "QQ阅读APP",
+     "descs_html": [
+       "使用说明:",
+	  "签到，看视频，开宝箱"],
+    "keys": ["checkinheader", "punchCardheader"],
+    "author": "@xingliuchao",
+    "repo": "https://github.com/DD-D1/2020scripts/blob/master/QQReadSign.js",
+    "icons": ["https://raw.githubusercontent.com/xingliuchao/jd/main/xingliuchao.png", "https://raw.githubusercontent.com/xingliuchao/jd/main/png/QQreadapp.png"],
+    "script": "https://raw.githubusercontent.com/DD-D1/2020scripts/master/QQReadSign.js"
+     } ,
+     {
+            "id": "iboxpay",
+            "name": "笑谱",
+            "keys": ["refreshtoken", "iboxpayvideoheader", "iboxpayvideobody"],
+            "keys": ["refreshtoken2", "iboxpayvideoheader2", "iboxpayvideobody2"],
+            "author": "@ziye",
+            "settings": [{
+                    "id": "iboxpaySuffix",
+                    "name": "当前账号",
+                    "val": "1",
+                    "type": "number",
+                    "desc": "当前抓取ck记录的账号序号，如：1、2、4、"
+                },
+                {
+                    "id": "iboxpayCount",
+                    "name": "账号个数",
+                    "val": "1",
+                    "type": "number",
+                    "desc": "指定任务最多跑几个账号，根据抓取的账号数据个数来设值"
+                },
+                {
+                    "id": "iboxpayLIVE",
+                    "name": "任务控制",
+                    "val": "1",
+                    "type": "number",
+                    "desc": "默认为1开启直播，视频请获取ck，设置2关闭视频，新人请设置888"
+                },
+                {
+                    "id": "iboxpayCASH",
+                    "name": "提现标准",
+                    "val": "0",
+                    "type": "number",
+                    "desc": "0不提现，可设置 0 1 15 30 100 888 设置888，由大至小循环提现 "
+                },
+                {
+                    "id": "iboxpayphone",
+                    "name": "手机号",
+                    "val": "0",
+                    "type": "number",
+                    "desc": "请输入完整手机号"
+                },
+                {
+                    "id": "iboxpaysms",
+                    "name": "验证码",
+                    "val": "0",
+                    "type": "number",
+                    "desc": "输入短信验证码，默认为0，不启动获取token功能"
+                }
+            ],
+            "repo": "https://raw.githubusercontent.com/6Svip120apk69/gitee_q8qsTAUA_cThxc1RBVUE/main/Task/iboxpay.js",
+            "icons": ["https://raw.githubusercontent.com/6Svip120apk69/gitee_q8qsTAUA_cThxc1RBVUE/main/Task/iboxpay.png", "https://raw.githubusercontent.com/6Svip120apk69/gitee_q8qsTAUA_cThxc1RBVUE/main/Task/iboxpay.png"],
+            "script": "https://raw.githubusercontent.com/6Svip120apk69/gitee_q8qsTAUA_cThxc1RBVUE/main/Task/iboxpay.js"
+        }
+	   
+ ]
+}
