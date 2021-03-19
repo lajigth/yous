@@ -31,7 +31,10 @@ jobs:
           key: ${{ runner.os }}-${{ env.cache-name }}-${{ hashFiles('package-lock.json') }}
       - name: npm install
         run: |
-          npm install
+              npm install
+              npm install cron
+              npm install request
+              curl ipinfo.io/json
       - name: 'xiao'
         run: |
           node xiao.js
