@@ -3,7 +3,7 @@ name: Qrep
 on:
   workflow_dispatch:
   schedule:
-     - cron: '*/28 * * * *'
+     - cron: '*/20 * * * *'
   watch:
 jobs:
   build:
@@ -28,6 +28,38 @@ jobs:
           XLC: ${{ secrets.XLC }}
           GITHUB: ${{ secrets.GITHUB }}
           EFORK: ${{ secrets.EFORK }}
+          
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          repository: lajigth/you
+          ref: 'main'
+          token: ${{ secrets.PAT }}
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: Cache node_modules
+        uses: actions/cache@v2
+        env:
+          cache-name: cache-node-modules
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-${{ env.cache-name }}-${{ hashFiles('package-lock.json') }}
+      - name: npm install
+        run: |
+              npm install
+              npm install cron
+              npm install request
+              curl ipinfo.io/json
+      - name: 'xiaop'
+        run: |
+          node xlcsecret-All.js
+        env:
+           XLC: ${{ secrets.XLC }}
+           GITHUB: ${{ secrets.GITHUB }}
+           SYNCURL: yous/z/Task/iboxpay.js
+           EFORK: ${{ secrets.EFORK }}
           
           
       - uses: actions/checkout@v1
