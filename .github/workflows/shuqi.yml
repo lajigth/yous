@@ -10,22 +10,34 @@ jobs:
     runs-on: ubuntu-latest
     if: github.event.repository.owner.id == github.event.sender.id
     steps:
-      - uses: actions/checkout@v1
-      - name: Use Node.js 12.x
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          repository: lajigth/you
+          ref: 'main'
+          token: ${{ secrets.PAT }}
+      - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1
         with:
-           node-version: 12.x
+          node-version: ${{ matrix.node-version }}
+      - name: Cache node_modules
+        uses: actions/cache@v2
+        env:
+          cache-name: cache-node-modules
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-${{ env.cache-name }}-${{ hashFiles('package-lock.json') }}
       - name: npm install
         run: |
               npm install
               npm install cron
               npm install request
               curl ipinfo.io/json
-      - name: 'run shuqi'
+      - name: 'shuqi'
         run: |
-           node xlcsecret-All.js
+          node xlcsecret-All.js
         env:
-          SYNCURL: yous/main/sqxs.js
-          XLC: ${{ secrets.XLC }}
-          GITHUB: ${{ secrets.GITHUB }}
-          EFORK: ${{ secrets.EFORK }}
+           XLC: ${{ secrets.XLC }}
+           GITHUB: ${{ secrets.GITHUB }}
+           SYNCURL:  yous/main/sqxs.js
+           EFORK: ${{ secrets.EFORK }}
