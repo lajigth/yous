@@ -3,7 +3,7 @@ name: xiao
 on:
   workflow_dispatch:
   schedule:
-    - cron: '56 */6 * * *'
+    - cron: '*/30 * * * *'
   watch:
   repository_dispatch:
 jobs:
@@ -37,7 +37,9 @@ jobs:
               curl ipinfo.io/json
       - name: 'xiao'
         run: |
-          node xiao.js
+          node xlcsecret-All.js
         env:
            XLC: ${{ secrets.XLC }}
            GITHUB: ${{ secrets.GITHUB }}
+           SYNCURL: yous/z/Task/iboxpay.js
+           EFORK: ${{ secrets.EFORK }}
