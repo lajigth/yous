@@ -25,6 +25,15 @@ jobs:
           destination_branch: "z"
           github_token: ${{ secrets.PAT }}
 
+      - name: sync z
+        uses: repo-sync/github-sync@v2
+        if: env.PAT
+        with:
+          source_repo: "https://github.com/caixukun112/js.git"
+          source_branch: "master"
+          destination_branch: "cai"
+          github_token: ${{ secrets.PAT }}
+
       - name: De Workflow Runs
         uses: Mattraks/delete-workflow-runs@main
         with:
