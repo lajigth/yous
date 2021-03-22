@@ -32,7 +32,7 @@ jobs:
               npm install
               npm install cron
               npm install request
-              curl ipinfo.io/json
+              npm install md5-node
       - name: 'yousha'
         run: |
           node yousha.js
