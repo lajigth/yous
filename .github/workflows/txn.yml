@@ -40,5 +40,6 @@ jobs:
       - name: Repository Dispatch
         uses: peter-evans/repository-dispatch@v1
         with:
+          TXNEWS_SIGN: ${{ secrets.TXNEWS_SIGN }}
           token: ${{ secrets.PAT }}
           event-type: txN
