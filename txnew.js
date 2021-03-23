@@ -75,9 +75,8 @@ if (isGetCookie) {
             prizeVal = prizeArr[i] 
             $.index = i + 1;
             console.log(`-------------------------\n\n开始【腾讯新闻账号${$.index}】`)
-            ID = signurlVal.match(/devid=[a-zA-Z0-9_-]+/g)[0]
+            ID = signurlVal.match(/devid=([a-zA-Z0-9_-]+)/)[1]
             token = signurlVal.split("mac")[1]
-            taskurl = 'http://inews.qq.com/inews/iphone/';
             await getsign();
             prizeVal?await open():"";
             prizeVal?await treesign():"";
@@ -123,14 +122,14 @@ function GetCookie() {
 
 function Host(api, body, taskurl) {
     return {
-        url: 'https://api.inews.qq.com/activity/v1/' + api + '&isJailbreak=0&' + ID,
+        url: 'https://api.inews.qq.com/activity/v1/' + api + '&isJailbreak=0&devid=' + ID,
         headers: {
             'Accept': '*/*',
             'Accept-Encoding': 'gzip, deflate, br',
             'Accept-Language': 'zh-Hans-CN;q=1, en-CN;q=0.9, zh-Hant-CN;q=0.8',
             'Connection': 'keep-alive',
-             'Cookie': cookieVal,
-            // 'Host': 'api.inews.qq.com',
+            'Cookie': cookieVal,
+            'Host': 'api.inews.qq.com',
             'Referer': taskurl,
             'store': '1',
             'devid': ID,
@@ -172,14 +171,17 @@ function open() {
      url: prizeVal,
      headers: Host().headers,
      body: "actname=chajian_shouqi"
- }
+ };
+     url.headers['Referer'] = 'http://inews.qq.com/inews/iphone/';
+     url.headers['Host'] = 'api.prize.qq.com';
  $.post(url, async(error, resp, data) => {
      if(resp.statusCode ==200){
        obj = JSON.parse(data);
        if(obj.code==0){
          amount = obj.data.type=="rp" ? "天天领红包获得"+obj.data.amount/100+"元": "天天领红包获得"+obj.data.amount+"个金币"
-         $.log(amount)
-         $.msg($.name, amount,"")
+         $.log(amount);
+         $.msg($.name, amount,"");
+         await zhuli()
        }
      } else if(resp.statusCode !== 403){
        $.log(JSON.stringify(resp,null,2))
@@ -189,6 +191,27 @@ function open() {
   })
 }
 
+/*function zhuli() {
+ return new Promise((resolve, reject) => {
+    treetoken = prizeVal.split("?")[1]
+ let url = {
+     url: 'https://api.prize.qq.com/v1/newsapp/rpinvite/zhuli?actname=hongbaozhongxinyaoqing&activefrom=invitetask&'+treetoken,
+     headers: Host().headers,
+     body: "inviter_openid=17A2385EE6D27888DB9F9D6B0BE90EEA&source=main"
+ };
+     url.headers['Referer'] = 'http://inews.qq.com/inews/iphone/';
+     url.headers['Host'] = 'api.prize.qq.com';
+ $.post(url, (error, resp, data) => {
+     if(resp.statusCode ==200){
+       obj=JSON.parse(data);
+       if(obj.code==0){
+         //$.log(obj.message)
+       }
+      }
+      resolve()
+     })
+   })
+}*/
 function treesign() {
  return new Promise((resolve, reject) => {
   treetoken = prizeVal.split("?")[1]
@@ -225,8 +248,10 @@ function activity() {
                     actid = taskres.data.award_notice.activity_id;
                     if (!actid) {
                         actid = $.getdata('txnews_id')
-                    }
+                    } else {
                     $.log(`\n您的活动ID为: ` + actid + "\n\n********* 开始阅读任务 ********\n");
+                $.setdata(actid,"txnews_id")
+                    }
                     $.desc = ""
                     for (tasks of taskres.data.list) {
                         taskname = tasks.task_title,
@@ -359,7 +384,7 @@ function StepsTotal() {
 //阶梯红包到账
 function Redpack(red_body) {
     return new Promise((resolve, reject) => {
-        $.post(Host('activity/redpack/get?', `redpack_type=${red_body}&activity_id=${actid}`), (error, resp, data) => {
+        $.post(Host('activity/redpack/get?', `redpack_type=${red_body}&activity_id=${actid}`,'http://inews.qq.com/inews/iphone/'), (error, resp, data) => {
             let rcash = JSON.parse(data);
             try {
                 if (rcash.data.award.length == 1) {
