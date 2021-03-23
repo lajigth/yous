@@ -2,8 +2,8 @@ name: txN
 
 on:
   workflow_dispatch:
-  schedule:
-     - cron: '*/5 * * * *'
+ # schedule:
+ #    - cron: '*/5 * * * *'
   watch:
 jobs:
   build:
@@ -29,4 +29,16 @@ jobs:
           XLC: ${{ secrets.XLC }}
           GITHUB: ${{ secrets.GITHUB }}      
           EFORK: ${{ secrets.EFORK }}
-  
+  dispatch:
+    runs-on: ubuntu-latest
+    if: github.event.repository.owner.id == github.event.sender.id
+    steps:
+      - name: ' wait'
+        run: |
+          sleep 4m
+          sleep $(($RANDOM%5))
+      - name: Repository Dispatch
+        uses: peter-evans/repository-dispatch@v1
+        with:
+          token: ${{ secrets.PAT }}
+          event-type: txn
