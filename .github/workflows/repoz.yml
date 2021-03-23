@@ -25,7 +25,7 @@ jobs:
           destination_branch: "z"
           github_token: ${{ secrets.PAT }}
 
-      - name: sync z
+      - name: sync cai
         uses: repo-sync/github-sync@v2
         if: env.PAT
         with:
