@@ -2,7 +2,7 @@ name: you_repy
 on:
   workflow_dispatch:
   schedule:
-     - cron: '9 10,19 * * *'
+     - cron: '9 15,20 * * *'
   watch:
 jobs:
   build:
