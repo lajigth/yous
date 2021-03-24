@@ -1,4 +1,4 @@
-name: ddn
+name: test-ddn
 
 on:
   workflow_dispatch:
