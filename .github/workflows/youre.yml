@@ -3,7 +3,7 @@ name: youre
 on:
   workflow_dispatch:
   schedule:
-    - cron: '36 */6 * * *'
+    - cron: '36 6,18 * * *'
   watch:
   repository_dispatch:
 jobs:
