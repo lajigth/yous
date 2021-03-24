@@ -54,6 +54,7 @@ jobs:
       - name: 'jfd'
         run: |
           node jfd.js
+          node zbqju.js
         env:
               JD_COOKIE: ${{ secrets.JD_COOKIE }}
               JXNCTOKENS: ${{ secrets.JXNCTOKENS }}
