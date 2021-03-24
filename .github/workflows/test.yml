@@ -1,0 +1,30 @@
+name: 东东农场
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '20 23,4,10,16 * * *'
+  repository_dispatch:
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    if: github.event.repository.owner.id == github.event.sender.id
+    steps:
+      - name: Checkout
+        run: |
+          git clone ${{ secrets.GIT_CLONE_URL }} ~/scripts
+      - name: Use Node.js 10.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: 10.x
+      - name: npm install
+        run: |
+          cd ~/scripts
+          npm install
+      - name: '***'
+        run: |
+          cd ~/scripts
+          node jd_fruit.js
+        env:
+          JD_COOKIE: ${{ secrets.JD_COOKIE }}
