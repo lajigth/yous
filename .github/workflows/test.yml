@@ -1,4 +1,4 @@
-name: 东东农场
+name: ddn
 
 on:
   workflow_dispatch:
