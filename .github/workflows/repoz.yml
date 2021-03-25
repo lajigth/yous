@@ -3,8 +3,6 @@ on:
   schedule:
     - cron: '50 * * * *'
   workflow_dispatch:
-  watch:
-  repository_dispatch:
 jobs:
   repo-sync:
     env:
@@ -14,7 +12,17 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         with:
-          persist-credentials: false 
+          persist-credentials: false
+
+      - name: sync sun
+        uses: repo-sync/github-sync@v2
+        if: env.PAT
+        with:
+          source_repo: "https://github.com/Sunert/Scripts.git"
+          source_branch: "master"
+          destination_branch: "sun"
+          github_token: ${{ secrets.PAT }}  
+
       - name: sync cai
         uses: repo-sync/github-sync@v2
         if: env.PAT
@@ -23,14 +31,16 @@ jobs:
           source_branch: "master"
           destination_branch: "cai"
           github_token: ${{ secrets.PAT }}  
+
       - name: sync z
         uses: repo-sync/github-sync@v2
         if: env.PAT
-        with: 
+        with:
           source_repo: "https://github.com/ziye888/JavaScript.git"
           source_branch: "main"
           destination_branch: "z"
           github_token: ${{ secrets.PAT }}
+
       - name: De Workflow Runs
         uses: Mattraks/delete-workflow-runs@main
         with:
