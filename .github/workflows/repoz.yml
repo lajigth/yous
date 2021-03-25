@@ -13,14 +13,6 @@ jobs:
       - uses: actions/checkout@v2
         with:
           persist-credentials: false
-      - name: De Workflow Runs
-        uses: Mattraks/delete-workflow-runs@main
-        with:
-          token: ${{ github.token }}
-          repository: ${{ github.repository }}
-          retain_days: 1
-          keep_minimum_runs: 0
-          
       - name: sync sun
         uses: repo-sync/github-sync@v2
         if: env.PAT
@@ -47,5 +39,13 @@ jobs:
           source_branch: "main"
           destination_branch: "z"
           github_token: ${{ secrets.PAT }}
-
+      - name: De Workflow Runs
+        uses: Mattraks/delete-workflow-runs@main
+        with:
+          token: ${{ github.token }}
+          repository: ${{ github.repository }}
+          retain_days: 2
+          keep_minimum_runs: 0
+          
+      
 
