@@ -1,7 +1,7 @@
 name: repoz
 on:
   schedule:
-    - cron: '50 * * * *'
+    - cron: '50 */2 * * *'
   workflow_dispatch:
 jobs:
   repo-sync:
