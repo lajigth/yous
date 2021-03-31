@@ -2,8 +2,8 @@ name: youtxn
 
 on:
   workflow_dispatch:
-    #schedule:
-     #- cron: '*/15 * * * *'
+    schedule:
+     - cron: '*/15 * * * *'
    repository_dispatch:
     types: youtxn
 jobs:
