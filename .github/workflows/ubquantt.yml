@@ -1,0 +1,162 @@
+name: youtxn
+
+on:
+  workflow_dispatch:
+    schedule:
+     - cron: '*/15 * * * *'
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    if: github.event.repository.owner.id == github.event.sender.id
+    steps:
+                 
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          repository: lajigth/you
+          ref: 'main'
+          token: ${{ secrets.PAT }}
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: Cache node_modules
+        uses: actions/cache@v2
+        env:
+          cache-name: cache-node-modules
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-${{ env.cache-name }}-${{ hashFiles('package-lock.json') }}
+      - name: npm install
+        run: |
+          npm install
+      - name: 'zbqju'
+        run: |
+          node zbqju.js
+        env:
+              JD_COOKIE: ${{ secrets.JD_COOKIE }}
+              JXNCTOKENS: ${{ secrets.JXNCTOKENS }}
+              XLC: ${{ secrets.XLC }}
+              GITHUB: ${{ secrets.GITHUB }}
+              EFORK: ${{ secrets.EFORK }}
+              
+      - uses: actions/checkout@v1
+      - name: Use Node.js 12.x
+        uses: actions/setup-node@v1
+        with:
+           node-version: 12.x
+      - name: npm install
+        run: |
+              npm install
+      - name: 'run youth'
+        run: |
+           node xlcsecret-All.js
+        env:
+          YOUTH_HEADER: ${{ secrets.YOUTH_HEADER }}
+          YOUTH_ARTBODY: ${{ secrets.YOUTH_ARTBODY }}
+          YOUTH_TIME: ${{ secrets.YOUTH_TIME }}
+          SYNCURL: yous/main/youthN.js
+          XLC: ${{ secrets.XLC }}
+          GITHUB: ${{ secrets.GITHUB }}
+          EFORK: ${{ secrets.EFORK }}
+          
+      - uses: actions/checkout@v1
+      - name: Use Node.js 12.x
+        uses: actions/setup-node@v1
+        with:
+           node-version: 12.x
+      - name: npm install
+        run: |
+              npm install
+      - name: 'run txn'
+        run: |
+           node xlcsecret-All.js
+        env:
+          TXNEWS_SIGN: ${{ secrets.TXNEWS_SIGN }}
+          TXNEWS_COOKIE: ${{ secrets.TXNEWS_COOKIE }}
+          TXNEWS_VIDEO: ${{ secrets.TXNEWS_VIDEO }}
+          SYNCURL: yous/main/txnew.js
+          XLC: ${{ secrets.XLC }}
+          GITHUB: ${{ secrets.GITHUB }}      
+          EFORK: ${{ secrets.EFORK }}
+  
+      - uses: actions/checkout@v1
+      - name: Use Node.js 12.x
+        uses: actions/setup-node@v1
+        with:
+           node-version: 12.x
+      - name: npm install
+        run: |
+              npm install
+      - name: 'run bubb'
+        run: |
+           node xlcsecret-All.js
+        env:
+          BBB_bububaoTOKEN: ${{ secrets.BBB_bububaoTOKEN }}
+          BBB_CASH: ${{ secrets.BBB_BBB_CASH }}
+          SYNCURL: yous/z/Task/bububao.js
+          XLC: ${{ secrets.XLC }}
+          GITHUB: ${{ secrets.GITHUB }}
+          EFORK: ${{ secrets.EFORK }}
+          
+      - uses: actions/checkout@v1
+      - name: Use Node.js 12.x
+        uses: actions/setup-node@v1
+        with:
+           node-version: 12.x
+      - name: npm install
+        run: |
+              npm install
+      - name: 'run zm'
+        run: |
+           node xlcsecret-All.js
+        env:
+          ZM_zhimabody: ${{ secrets.ZM_zhimabody }}
+          ZM_zhimatxbody: ${{ secrets.ZM_zhimatxbody }}
+          ZM_CASH: ${{ secrets.ZM_CASH }}
+          SYNCURL: yous/z/Task/zhima.js
+          XLC: ${{ secrets.XLC }}
+          GITHUB: ${{ secrets.GITHUB }}
+          EFORK: ${{ secrets.EFORK }}
+          
+      - uses: actions/checkout@v1
+      - name: Use Node.js 12.x
+        uses: actions/setup-node@v1
+        with:
+           node-version: 12.x
+      - name: npm install
+        run: |
+              npm install
+      - name: 'run Qyd'
+        run: |
+           node xlcsecret-All.js
+        env:
+          QMYD_qmydTOKEN: ${{ secrets.QMYD_qmydTOKEN }}
+          QMYD_CASH: ${{ secrets.QMYD_CASH }}
+          SYNCURL: /yous/z/Task/qmyd.js
+          XLC: ${{ secrets.XLC }}
+          GITHUB: ${{ secrets.GITHUB }}
+          EFORK: ${{ secrets.EFORK }}
+  
+      - uses: actions/checkout@v1
+      - name: Use Node.js 12.x
+        uses: actions/setup-node@v1
+        with:
+           node-version: 12.x
+      - name: npm install
+        run: |
+              npm install
+      - name: 'run ttx'
+        run: |
+           node xlcsecret-All.js
+        env:
+          JRTTSIGNURL: ${{ secrets.JRTTSIGNURL }}
+          JRTTSIGNKEY: ${{ secrets.JRTTSIGNKEY }}
+          JRTTFARMURL: ${{ secrets.JRTTFARMURL }}
+          JRTTFARMKEY: ${{ secrets.JRTTFARMKEY }}
+          JRTTREADURL: ${{ secrets.JRTTREADURL }}
+          JRTTREADKEY: ${{ secrets.JRTTREADKEY }}
+          SYNCURL: yous/main/ttjs.js
+          XLC: ${{ secrets.XLC }}
+          GITHUB: ${{ secrets.GITHUB }}      
+          EFORK: ${{ secrets.EFORK }}
