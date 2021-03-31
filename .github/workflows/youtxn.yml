@@ -160,16 +160,3 @@ jobs:
           XLC: ${{ secrets.XLC }}
           GITHUB: ${{ secrets.GITHUB }}      
           EFORK: ${{ secrets.EFORK }}
-  dispatch:
-    runs-on: ubuntu-latest
-    if: github.event.repository.owner.id == github.event.sender.id
-    steps:
-      - name: ' wait'
-        run: |
-          sleep 29m
-          sleep $(($RANDOM%5))
-      - name: Repository Dispatch
-        uses: peter-evans/repository-dispatch@v1
-        with:
-          token: ${{ secrets.PAT }}
-          event-type: youtxn
