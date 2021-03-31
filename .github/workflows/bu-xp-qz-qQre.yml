@@ -122,4 +122,24 @@ jobs:
           GITHUB: ${{ secrets.GITHUB }}
           EFORK: ${{ secrets.EFORK }}
           
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          repository: lajigth/you
+          ref: 'main'
+          token: ${{ secrets.PAT }}
+      - name: 'Set up Python'
+        uses: actions/setup-python@v1
+        with:
+          python-version: 3.7       
+      - name: 'Install requests'
+        run: pip install requests
+      - name: 'run youthpy'
+        run: python3 youth.py
+         # 目前最大5个账号
+        env:
+             BARK: ${{ secrets.BARK }}  #非必须 bark通知
+             TG_BOT_TOKEN: ${{ secrets.TG_BOT_TOKEN }}  #非必须 tg机器人token
+             TG_USER_ID: ${{ secrets.TG_USER_ID }}  #非必须 tg机器人userId
+             XLC: ${{ secrets.XLC }}   
       
