@@ -166,7 +166,7 @@ jobs:
     steps:
       - name: ' wait'
         run: |
-          sleep 5m
+          sleep 28m
           sleep $(($RANDOM%5))
       - name: Repository Dispatch
         uses: peter-evans/repository-dispatch@v1
