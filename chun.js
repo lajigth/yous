@@ -71,7 +71,7 @@ let sdid = '';sdlqid = '';tc = 0
 let hd={"Accept": "*/*","Accept-Encoding": "gzip, deflate","Accept-Language": "zh-Hans-CN;q=1, en-US;q=0.9, zh-Hant-CN;q=0.8","Connection": "keep-alive","Content-Type": "application/x-www-form-urlencoded","Host": "cf-api.douzhuanapi.cn:10002","User-Agent": "NormalDemo/1 (iPhone; iOS 14.3; Scale/3.00)","X-V": "1","osType": "iOS","phoneModel": "iPhone 6s Plus","platform": "iOS","versioncode": "1","X-CCMS":"SXBJanBnbGR5ZC55bGF0cGQ="}
 let phoneModel=['iPhone 6s Plus','iPhone 6s Plus']
 
-acsecret=["Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI2MDRiNWRmNjI4MWUyIiwiaWF0IjoxNjE1NTUxOTkwLCJuYmYiOjE2MTU1NTE5OTAsImV4cCI6MTYxODE0Mzk5MCwidWlkIjoxMjEzNzI3LCJuYW1lIjoiXHU1Yjg4XHU0ZTQ5MTNcdTk5OTkiLCJjcmVhdGVkX2F0IjoiMjAyMS0wMy0xMiAyMDoyNjozMCIsImNpdHlfbmFtZSI6bnVsbCwiY2l0eV9jb2RlIjpudWxsfQ.kpgtam4gtQGKHtoA8lHwjzVFXkiafr20PhoyisoiU3w"]
+acsecret=["Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI2MDdlMjIwNjA0MzNjIiwiaWF0IjoxNjE4ODc4OTgyLCJuYmYiOjE2MTg4Nzg5ODIsImV4cCI6MTYyMTQ3MDk4MiwidWlkIjoxMjEzNzI3LCJuYW1lIjoiXHU1Yjg4XHU0ZTQ5MTNcdTk5OTkiLCJjcmVhdGVkX2F0IjoiMjAyMS0wMy0xMiAyMDoyNjozMCIsImNpdHlfbmFtZSI6bnVsbCwiY2l0eV9jb2RlIjpudWxsfQ.cbJDxt_irGW3HSVmrS7oNqL7qaY2EXoFJApRliKvaMo"]
 
 
 !(async () => {
