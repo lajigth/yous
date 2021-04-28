@@ -1,0 +1,26 @@
+name: 'wuyouxing'
+
+on:
+  push:
+  schedule:
+    - cron: '0 1 * * *'
+
+jobs:
+  autosign:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v1
+        with:
+          php-version: '7.4'
+
+      - name: 'wuyouxing'
+        env:
+          TASKID: ${{ secrets.TASKID }}
+          USERID: ${{ secrets.USERID }}
+        run: php wuyouxing.php
