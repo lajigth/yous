@@ -1,10 +1,10 @@
-name: 'jegotrip_sign'
+name: 'wuyouxing'
 
 
 on:
   push:
   schedule:
-    - cron: '0 18 * * *'
+    - cron: '0 1 * * *'
 
 jobs:
   autosign:
@@ -20,7 +20,7 @@ jobs:
         with:
           php-version: '7.4'
 
-      - name: 'Sign'
+      - name: 'wuyouxing'
         env:
           TASKID: ${{ secrets.TASKID }}
           USERID: ${{ secrets.USERID }}
